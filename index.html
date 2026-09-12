@@ -5,42 +5,57 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Programa catehetică 2027</title>
 <style>
-body{margin:0;background:#f7f5f0;color:#24211d;font-family:Georgia,'Times New Roman',serif;line-height:1.65}.wrap{max-width:900px;margin:0 auto;padding:44px 24px}header{padding-bottom:24px;border-bottom:1px solid #ded8cf}.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;color:#6f675f}h1{font-size:2.5rem;line-height:1.15;font-weight:500;margin:.35em 0}.subtitle{color:#514b45}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}.card{display:block;padding:20px;border:1px solid #ded8cf;border-radius:10px;background:#fff;color:#24211d;text-decoration:none}.card:hover{border-color:#6f2f2f}.card span{display:block;color:#6f675f;font-size:.9rem;margin-bottom:6px}.annual{margin-top:54px;padding-top:30px;border-top:2px solid #cfc6ba}.annual-intro{max-width:760px}.annual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}.annual-card{display:block;padding:25px;border:1px solid #cfc6ba;border-radius:12px;background:#eee9df;color:#24211d;text-decoration:none}.annual-card:hover{border-color:#6f2f2f}.annual-card .label{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;color:#6f675f}.annual-card h3{font-size:1.35rem;font-weight:500;margin:7px 0}.annual-card p{margin:0;color:#514b45}.muted{opacity:.48;pointer-events:none}footer{margin-top:48px;padding-top:18px;border-top:1px solid #ded8cf;color:#6f675f;font-size:.92rem}@media(max-width:720px){.grid,.annual-grid{grid-template-columns:1fr}h1{font-size:2rem}.wrap{padding:30px 18px}}
+:root{--paper:#f7f5f0;--ink:#24211d;--muted:#625b54;--burgundy:#6f2f2f;--line:#d8d0c5;--sage:#e8eee6;--sand:#f1e8d8;--rose:#f1e3e1;--blue:#e5ebee;--lavender:#ece7ef;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.65}.wrap{max-width:1120px;margin:0 auto;padding:48px 28px 54px}
+.hero{text-align:center;padding:46px 54px 42px;background:rgba(255,255,255,.62);border:1px solid #e2dbd1;border-top:4px solid var(--burgundy);border-radius:0 0 28px 28px;box-shadow:0 10px 30px rgba(67,51,40,.055)}.hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;font-weight:600;color:var(--burgundy);margin:0 0 17px}.hero h1{font-size:3rem;line-height:1.12;font-weight:500;margin:0;color:#2b2521}.hero-rule{width:92px;height:1px;background:var(--burgundy);margin:22px auto 20px}.hero .subtitle{max-width:850px;margin:0 auto;color:#5c534c;font-family:Palatino,'Book Antiqua',Georgia,serif;font-size:1.08rem;font-style:italic;line-height:1.75}
+.section-head{text-align:center;max-width:850px;margin:62px auto 34px}.section-kicker{text-transform:uppercase;letter-spacing:.12em;color:var(--burgundy);font-size:.78rem;font-weight:600;margin:0 0 9px}.section-head h2{font-family:Palatino,'Book Antiqua',Georgia,serif;font-size:2rem;font-weight:500;line-height:1.25;margin:0 0 10px}.section-head p{font-family:Palatino,'Book Antiqua',Georgia,serif;color:var(--muted);font-size:1.04rem;line-height:1.7;margin:0 auto;max-width:760px}.section-head:after{content:"";display:block;width:70px;height:1px;background:#a78080;margin:20px auto 0}
+.catechesis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 38px;align-items:center;justify-items:center}.circle{width:100%;max-width:480px;aspect-ratio:1/1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:52px 58px;color:var(--ink);text-decoration:none;border:1px solid rgba(84,72,62,.18);box-shadow:0 8px 22px rgba(68,53,42,.045);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.circle:hover{transform:translateY(-3px);border-color:#9e7474;box-shadow:0 12px 28px rgba(68,53,42,.075)}.circle span{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:.77rem;color:#6f675f;margin-bottom:12px}.circle strong{font-family:Palatino,'Book Antiqua',Georgia,serif;font-size:1.2rem;line-height:1.42;font-weight:500}.c1,.c6{background:var(--sage)}.c2,.c7{background:var(--sand)}.c3,.c8{background:var(--rose)}.c4,.c9{background:var(--blue)}.c5,.c10{background:var(--lavender)}
+.annual{margin-top:72px;padding:45px 0 0;border-top:2px solid #cfc6ba}.annual .section-head{margin:0 auto 32px}.annual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.annual-card{display:block;padding:29px 27px;border:1px solid #cfc6ba;border-radius:14px;background:#eee9df;color:var(--ink);text-decoration:none;min-height:190px}.annual-card:hover{border-color:var(--burgundy)}.annual-card .label{text-transform:uppercase;letter-spacing:.09em;font-size:.76rem;color:#6f675f}.annual-card h3{font-family:Palatino,'Book Antiqua',Georgia,serif;font-size:1.35rem;line-height:1.35;font-weight:500;margin:12px 0 13px}.annual-card p{margin:0;color:#514b45}.muted-card{opacity:.48;pointer-events:none}footer{text-align:center;margin-top:52px;padding-top:20px;border-top:1px solid #ded8cf;color:#6f675f;font-size:.92rem}
+@media(max-width:800px){.catechesis-grid{grid-template-columns:1fr;gap:24px}.circle{max-width:440px}.annual-grid{grid-template-columns:1fr}.hero{padding:38px 25px 34px}.hero h1{font-size:2.35rem}.wrap{padding:30px 18px 42px}}@media(max-width:520px){.circle{max-width:360px;padding:42px}.circle strong{font-size:1.08rem}.hero h1{font-size:2rem}.section-head h2{font-size:1.7rem}}
 </style>
 </head>
 <body>
 <main class="wrap">
-<header>
+<header class="hero">
 <p class="eyebrow">Arhiepiscopia Vadului, Feleacului și Clujului</p>
 <h1>Programa catehetică 2027</h1>
+<div class="hero-rule"></div>
 <p class="subtitle">Anul omagial al conlucrării clericilor și mirenilor în viața și misiunea Bisericii · Anul comemorativ al Patriarhilor Justinian Marina și Teoctist Arăpașu</p>
 </header>
-<h2>Biblioteca digitală a catehezelor</h2>
+
+<section aria-labelledby="biblioteca-title">
+<div class="section-head">
+<p class="section-kicker">Partea I</p>
+<h2 id="biblioteca-title">Biblioteca digitală a catehezelor</h2>
 <p>Resurse biblice, teologice, documentare și multimedia pentru aprofundarea celor zece cateheze din Programa catehetică 2027.</p>
-<div class="grid">
-<a class="card" href="./cateheza-1.html"><span>Cateheza 1</span>Biserica – un singur trup, daruri și slujiri diferite</a>
-<a class="card" href="./cateheza-2.html"><span>Cateheza 2</span>Parohia – comunitate de credință, comuniune și slujire</a>
-<a class="card" href="./cateheza-3.html"><span>Cateheza 3</span>Vocația misionară a mirenilor</a>
-<a class="card" href="./cateheza-4.html"><span>Cateheza 4</span>Diaconia creștină – conlucrarea clericilor și mirenilor în slujirea aproapelui</a>
-<a class="card" href="./cateheza-5.html"><span>Cateheza 5</span>Educația creștină – conlucrarea Bisericii, familiei și școlii</a>
-<a class="card" href="./cateheza-6.html"><span>Cateheza 6</span>Patriarhul Justinian Marina – continuitate și misiune eclezială în perioada comunistă</a>
-<a class="card" href="./cateheza-7.html"><span>Cateheza 7</span>Patriarhul Teoctist Arăpașu – Biserica între încercare și redobândirea libertății</a>
-<a class="card" href="./cateheza-8.html"><span>Cateheza 8</span>Sfinții români – vocații și slujiri diferite, aceeași mărturisire</a>
-<a class="card" href="./cateheza-9.html"><span>Cateheza 9</span>Biserica dincolo de granițe – credință, comuniune și misiune în diaspora</a>
-<a class="card" href="./cateheza-10.html"><span>Cateheza 10</span>Ce pot face eu pentru Biserică? – darul fiecăruia în slujba tuturor</a>
 </div>
-<section class="annual">
-<p class="eyebrow">A doua parte a programei</p>
-<h2>Programul catehetic anual</h2>
-<p class="annual-intro">Parcursuri catehetice distincte pentru marile perioade de post ale anului bisericesc. Fiecare perioadă are propria secțiune și propriul parcurs digital.</p>
+<div class="catechesis-grid">
+<a class="circle c1" href="./cateheza-1.html"><span>Cateheza 1</span><strong>Biserica – un singur trup, daruri și slujiri diferite</strong></a>
+<a class="circle c2" href="./cateheza-2.html"><span>Cateheza 2</span><strong>Parohia – comunitate de credință, comuniune și slujire</strong></a>
+<a class="circle c3" href="./cateheza-3.html"><span>Cateheza 3</span><strong>Vocația misionară a mirenilor</strong></a>
+<a class="circle c4" href="./cateheza-4.html"><span>Cateheza 4</span><strong>Diaconia creștină – conlucrarea clericilor și mirenilor în slujirea aproapelui</strong></a>
+<a class="circle c5" href="./cateheza-5.html"><span>Cateheza 5</span><strong>Educația creștină – conlucrarea Bisericii, familiei și școlii</strong></a>
+<a class="circle c6" href="./cateheza-6.html"><span>Cateheza 6</span><strong>Patriarhul Justinian Marina – continuitate și misiune eclezială în perioada comunistă</strong></a>
+<a class="circle c7" href="./cateheza-7.html"><span>Cateheza 7</span><strong>Patriarhul Teoctist Arăpașu – Biserica între încercare și redobândirea libertății</strong></a>
+<a class="circle c8" href="./cateheza-8.html"><span>Cateheza 8</span><strong>Sfinții români – vocații și slujiri diferite, aceeași mărturisire</strong></a>
+<a class="circle c9" href="./cateheza-9.html"><span>Cateheza 9</span><strong>Biserica dincolo de granițe – credință, comuniune și misiune în diaspora</strong></a>
+<a class="circle c10" href="./cateheza-10.html"><span>Cateheza 10</span><strong>Ce pot face eu pentru Biserică? – darul fiecăruia în slujba tuturor</strong></a>
+</div>
+</section>
+
+<section class="annual" aria-labelledby="annual-title">
+<div class="section-head">
+<p class="section-kicker">Partea a II-a a programei</p>
+<h2 id="annual-title">Programul catehetic anual</h2>
+<p>Parcursuri catehetice distincte pentru marile perioade de post ale anului bisericesc. Fiecare perioadă are propria secțiune și propriul parcurs digital.</p>
+</div>
 <div class="annual-grid">
 <a class="annual-card" href="./postul-mare.html"><span class="label">Program catehetic</span><h3>Postul Mare – Răstignirea duhovnicească</h3><p>Intră în parcursul catehetic →</p></a>
-<div class="annual-card muted"><span class="label">În pregătire</span><h3>Postul Adormirii Maicii Domnului</h3><p>Secțiune distinctă</p></div>
-<div class="annual-card muted"><span class="label">În pregătire</span><h3>Postul Nașterii Domnului</h3><p>Secțiune distinctă</p></div>
+<div class="annual-card muted-card"><span class="label">În pregătire</span><h3>Postul Adormirii Maicii Domnului</h3><p>Secțiune distinctă</p></div>
+<div class="annual-card muted-card"><span class="label">În pregătire</span><h3>Postul Nașterii Domnului</h3><p>Secțiune distinctă</p></div>
 </div>
 </section>
 <footer>Programa catehetică 2027 · Biblioteca digitală</footer>
 </main>
-<!-- GitHub Pages rebuild marker: 2026-09-12 -->
 </body>
 </html>
