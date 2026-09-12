@@ -1,0 +1,40 @@
+name: Underline adult resource headings
+
+on:
+  push:
+    paths:
+      - '.github/workflows/underline-adult-headings.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Underline headings in catecheses 1-10
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          for i in range(1, 11):
+              p = Path(f"cateheza-{i}.html")
+              s = p.read_text(encoding="utf-8")
+              old = ".adult-orb h3{"
+              new = ".adult-orb h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;"
+              if new not in s:
+                  if old not in s:
+                      raise SystemExit(f"CSS selector missing in {p}")
+                  s = s.replace(old, new, 1)
+                  p.write_text(s, encoding="utf-8")
+          PY
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cateheza-{1..10}.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Underline resource headings across catecheses 1-10"
+          git push
