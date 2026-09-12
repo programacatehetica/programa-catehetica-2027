@@ -1,4 +1,4 @@
-name: Add Part III catechetical itinerary
+name: Build Part III catechetical atlas
 
 on:
   push:
@@ -13,20 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add Part III to homepage
+      - name: Refine Part III on homepage
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-          css='''\n.itinerary{margin-top:72px;padding:52px 0 0;border-top:2px solid #cfc6ba}.itinerary .section-head{margin:0 auto 34px}.itinerary-intro{max-width:760px;margin:0 auto 30px;text-align:center;color:#625b54;font-family:Palatino,'Book Antiqua',Georgia,serif}.itinerary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.itinerary-card{position:relative;overflow:hidden;display:flex;min-height:330px;padding:32px 28px;border:1px solid rgba(84,72,62,.18);border-radius:24px;color:var(--ink);text-decoration:none;flex-direction:column;justify-content:space-between;box-shadow:0 8px 22px rgba(68,53,42,.045);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.itinerary-card:hover{transform:translateY(-4px);border-color:#9e7474;box-shadow:0 14px 30px rgba(68,53,42,.08)}.itinerary-card:nth-child(1){background:var(--rose)}.itinerary-card:nth-child(2){background:var(--blue)}.itinerary-card:nth-child(3){background:var(--sand)}.itinerary-number{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:#746b64}.itinerary-symbol{font-family:Georgia,serif;font-size:2.4rem;line-height:1;color:var(--burgundy);margin:18px 0}.itinerary-card h3{font-family:Palatino,'Book Antiqua',Georgia,serif;font-size:1.45rem;line-height:1.3;font-weight:500;margin:0 0 10px}.itinerary-card .period{font-size:.92rem;color:#625b54;margin:0 0 18px}.itinerary-card .explore{margin-top:auto;padding-top:20px;border-top:1px solid rgba(111,47,47,.18);font-size:.9rem;font-weight:600;color:var(--burgundy)}.itinerary-note{text-align:center;margin:26px auto 0;max-width:760px;font-family:Palatino,'Book Antiqua',Georgia,serif;font-style:italic;color:#6a625b}\n'''
-          marker='@media(max-width:800px)'
-          if '.itinerary{' not in s:
-              s=s.replace(marker,css+marker,1)
-              s=s.replace('.annual-grid{grid-template-columns:1fr}', '.annual-grid{grid-template-columns:1fr}.itinerary-grid{grid-template-columns:1fr}.itinerary-card{min-height:260px}',1)
-          html='''\n<section class="itinerary" aria-labelledby="itinerary-title"><div class="section-head"><p class="section-kicker">Partea a III-a</p><h2 id="itinerary-title">Itinerar catehetic cu Mitropolitul Andrei</h2><p>Trei cicluri catehetice pentru marile perioade de post, reunite într-un parcurs de lectură și aprofundare.</p></div><div class="itinerary-grid"><a class="itinerary-card" href="./itinerar-postul-mare.html"><div><span class="itinerary-number">Itinerar I</span><div class="itinerary-symbol">✝</div><h3>Răstignirea duhovnicească</h3><p class="period">Postul Mare</p></div><span class="explore">Explorează catehezele →</span></a><a class="itinerary-card" href="./itinerar-adormirea-maicii-domnului.html"><div><span class="itinerary-number">Itinerar II</span><div class="itinerary-symbol">ΜΡ ΘΥ</div><h3>Cultul Maicii Domnului în Biserica Ortodoxă</h3><p class="period">Postul Adormirii Maicii Domnului</p></div><span class="explore">Explorează catehezele →</span></a><a class="itinerary-card" href="./itinerar-nasterea-domnului.html"><div><span class="itinerary-number">Itinerar III</span><div class="itinerary-symbol">✦</div><h3>Crăciunul – sărbătoare a păcii</h3><p class="period">Postul Nașterii Domnului</p></div><span class="explore">Explorează catehezele →</span></a></div><p class="itinerary-note">Cateheze ale Înaltpreasfințitului Părinte Andrei, Mitropolitul Clujului, Maramureșului și Sălajului</p></section>'''
-          if 'id="itinerary-title"' not in s:
-              s=s.replace('<footer>',html+'<footer>',1)
+          new_css='''.itinerary{margin-top:72px;padding:52px 0 0;border-top:2px solid #cfc6ba}.itinerary .section-head{margin:0 auto 28px}.itinerary-entry{display:block;position:relative;overflow:hidden;max-width:920px;margin:0 auto;padding:34px 36px 30px;border:1px solid #cfc6ba;border-radius:26px;background:linear-gradient(135deg,rgba(241,227,225,.78),rgba(229,235,238,.72) 52%,rgba(241,232,216,.78));color:var(--ink);text-decoration:none;box-shadow:0 10px 28px rgba(68,53,42,.055);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.itinerary-entry:hover{transform:translateY(-3px);border-color:#9e7474;box-shadow:0 14px 34px rgba(68,53,42,.085)}.atlas-mark{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:10px;max-width:600px;margin:0 auto 26px}.atlas-line{height:1px;background:rgba(111,47,47,.34)}.atlas-node{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(111,47,47,.28);color:var(--burgundy);font-family:Palatino,'Book Antiqua',Georgia,serif;font-size:1.1rem}.itinerary-entry .atlas-label{text-align:center;text-transform:uppercase;letter-spacing:.12em;font-size:.74rem;color:#766b64}.itinerary-entry h3{text-align:center;font-family:Palatino,'Book Antiqua',Georgia,serif;font-size:1.65rem;line-height:1.3;font-weight:500;margin:8px 0 10px}.itinerary-entry p{max-width:720px;margin:0 auto;text-align:center;color:#5b534d;font-family:Palatino,'Book Antiqua',Georgia,serif}.itinerary-entry .explore{display:block;width:max-content;margin:24px auto 0;padding:9px 15px;border:1px solid rgba(111,47,47,.25);border-radius:999px;background:rgba(255,255,255,.75);color:var(--burgundy);font-size:.88rem;font-weight:700}.itinerary-note{text-align:center;margin:18px auto 0;max-width:760px;font-family:Palatino,'Book Antiqua',Georgia,serif;font-style:italic;color:#6a625b}'''
+          s=re.sub(r'\.itinerary\{.*?(?=@media\(max-width:800px\))',new_css+'\n',s,flags=re.S)
+          s=s.replace('.annual-grid{grid-template-columns:1fr}.itinerary-grid{grid-template-columns:1fr}.itinerary-card{min-height:260px}', '.annual-grid{grid-template-columns:1fr}.itinerary-entry{padding:28px 20px}.atlas-mark{grid-template-columns:1fr auto 1fr auto 1fr}.atlas-node{width:46px;height:46px}',1)
+          new_html='''<section class="itinerary" aria-labelledby="itinerary-title"><div class="section-head"><p class="section-kicker">Partea a III-a</p><h2 id="itinerary-title">Itinerar</h2><p>O lectură transversală a catehezelor Mitropolitului Andrei, organizată ca atlas de teme, legături și repere duhovnicești.</p></div><a class="itinerary-entry" href="./atlas-catehetic.html"><div class="atlas-mark"><span class="atlas-node">✝</span><span class="atlas-line"></span><span class="atlas-node">ΜΡ</span><span class="atlas-line"></span><span class="atlas-node">✦</span></div><span class="atlas-label">Atlas catehetic</span><h3>Explorează ideile care traversează marile perioade de post</h3><p>Scriptură, Liturghie, viață duhovnicească, Tradiție și mărturisire — reunite într-o hartă care va conduce direct spre catehezele în care fiecare temă este dezvoltată.</p><span class="explore">Deschide atlasul catehetic →</span></a><p class="itinerary-note">Cateheze ale Înaltpreasfințitului Părinte Andrei, Mitropolitul Clujului, Maramureșului și Sălajului</p></section>'''
+          s=re.sub(r'<section class="itinerary".*?</section>',new_html,s,flags=re.S)
           p.write_text(s,encoding='utf-8')
           PY
       - name: Commit homepage
@@ -35,5 +33,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Add Part III catechetical itinerary"
+          git commit -m "Refine Part III as catechetical atlas"
           git push
