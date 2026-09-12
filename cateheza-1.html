@@ -48,7 +48,7 @@ async function downloadWorksheetAsWord(button){
     const main=doc.querySelector('main') || doc.body;
     main.querySelectorAll('script,style,.back,nav,footer').forEach(el=>el.remove());
     const title=(doc.querySelector('h1')?.textContent || 'Fișă catehetică').trim();
-    const wordHtml=`<!doctype html><html><head><meta charset="utf-8"><title>${title}</title><style>@page{size:A4;margin:1.7cm}body{font-family:Georgia,'Times New Roman',serif;color:#222;font-size:11pt;line-height:1.45}h1{font-size:20pt;margin:0 0 12pt;color:#6f2f2f}h2{font-size:15pt;margin:16pt 0 8pt}h3{font-size:12.5pt;margin:13pt 0 6pt}p{margin:5pt 0}blockquote{margin:10pt 18pt;padding-left:10pt;border-left:2pt solid #6f2f2f}ul,ol{margin:6pt 0 8pt 20pt}li{margin:4pt 0}.line,.answer-line{border-bottom:1px solid #999;min-height:18pt;margin:7pt 0}a{color:#222;text-decoration:none}</style></head><body>${main.innerHTML}</body></html>`;
+    const wordHtml=`<!doctype html><html><head><meta charset="utf-8"><title>${title}</title><style>@page{size:A4;margin:1.7cm}body{font-family:Georgia,'Times New Roman',serif;color:#222;font-size:11pt;line-height:1.5}h1{font-size:20pt;margin:0 0 16pt;color:#6f2f2f}h2{font-size:15pt;margin:30pt 0 10pt;page-break-after:avoid}h3{font-size:12.5pt;margin:20pt 0 8pt;page-break-after:avoid}p{margin:7pt 0}blockquote{margin:14pt 18pt;padding-left:10pt;border-left:2pt solid #6f2f2f}ul,ol{margin:10pt 0 16pt 22pt}li{margin:8pt 0}.line,.answer-line{border-bottom:1px solid #999;min-height:28pt;margin:11pt 0}.exercise,.task,.question,.card,.step{margin-top:22pt;margin-bottom:22pt;padding-bottom:8pt}section{margin-bottom:24pt}a{color:#222;text-decoration:none}</style></head><body>${main.innerHTML}</body></html>`;
     const blob=new Blob(['\ufeff',wordHtml],{type:'application/msword'});
     const url=URL.createObjectURL(blob);
     const a=document.createElement('a');
@@ -69,4 +69,4 @@ document.querySelectorAll('.worksheet-actions .download').forEach(button=>button
 </script>
 </body>
 </html>
-<!-- real Word worksheet downloads 2026-09-12 -->
+<!-- Word worksheets with writing spacing 2026-09-12 -->
