@@ -5,24 +5,37 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Postul Mare – Răstignirea duhovnicească | Programa catehetică 2027</title>
 <style>
-body{margin:0;background:#f7f5f0;color:#24211d;font-family:Georgia,'Times New Roman',serif;line-height:1.65}.wrap{max-width:900px;margin:0 auto;padding:44px 24px}.back{display:inline-block;margin-bottom:24px;color:#6f2f2f;text-decoration:none}.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;color:#6f675f}h1{font-size:2.45rem;line-height:1.15;font-weight:500;margin:.25em 0 .35em}.subtitle{color:#514b45}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}.card{display:block;padding:20px;border:1px solid #ded8cf;border-radius:10px;background:#fff;color:#24211d;text-decoration:none}.card:hover{border-color:#6f2f2f}.card span{display:block;color:#6f675f;font-size:.9rem;margin-bottom:6px}.muted{opacity:.5;pointer-events:none}.note{margin-top:34px;padding:20px 22px;background:#eee9df;border-radius:10px;color:#514b45}footer{margin-top:48px;padding-top:18px;border-top:1px solid #ded8cf;color:#6f675f;font-size:.92rem}@media(max-width:650px){.grid{grid-template-columns:1fr}h1{font-size:2rem}.wrap{padding:30px 18px}}
+:root{--paper:#f7f5f0;--ink:#292b2a;--plum:#594b62;--sage:#789187;--gold:#b49a71}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.65}
+.wrap{max-width:1050px;margin:auto;padding:44px 26px 65px}.back{display:inline-block;margin-bottom:30px;color:#594b62;text-decoration:none;border-bottom:1px solid #c9b8c7}.back:hover{border-color:#594b62}
+.intro{text-align:center;max-width:790px;margin:0 auto 35px}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font:700 .75rem Arial,sans-serif;color:#76627c}h1{font-size:clamp(2rem,4.5vw,3.25rem);line-height:1.18;font-weight:500;margin:18px 0}.subtitle{color:#615e60;font-size:1.06rem}
+.journey{background:linear-gradient(145deg,#5a4c63,#405b5b);border-radius:26px;padding:38px clamp(16px,4vw,50px) 42px;color:#fff9f1;box-shadow:0 20px 48px #2b283023}
+.journey-top{text-align:center}.journey-top p{font-size:.75rem;letter-spacing:.17em;text-transform:uppercase;color:#e4d4b7;margin:0}.journey-top h2{font-size:1.6rem;font-weight:400;margin:8px 0 4px}.journey-hint{font-size:.86rem;color:#e4e7df;margin:4px 0 0}
+.path{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:48px 0 36px;align-items:start}
+.path:before{content:"";position:absolute;top:32px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,#cbb18a,#f3e3c9,#cbb18a);opacity:.85}
+.stop{position:relative;z-index:1;background:none;border:0;color:inherit;font-family:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0;padding:0 2px}
+.stop-number{display:grid;place-items:center;width:65px;height:65px;border-radius:50%;background:#5c6263;border:2px solid #cbb18a;color:#f7ead1;font-size:1.28rem;transition:transform .2s,background .2s,box-shadow .2s}
+.stop-label{font-size:.82rem;line-height:1.35;text-align:center;color:#f0e9df;max-width:145px}
+.stop:hover .stop-number,.stop:focus-visible .stop-number,.stop[aria-pressed="true"] .stop-number{background:#e7d5b7;color:#3f4547;transform:translateY(-5px);box-shadow:0 0 0 6px #ffffff1c}
+.stop:focus-visible{outline:2px solid #f7ead1;outline-offset:7px;border-radius:12px}
+.detail{border-top:1px solid #ffffff60;min-height:188px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;padding:28px 8px 0}
+.detail-kicker{color:#e7d4b4;text-transform:uppercase;letter-spacing:.16em;font:700 .72rem Arial,sans-serif;margin:0}
+.detail h3{font-size:clamp(1.45rem,3vw,2.2rem);line-height:1.25;font-weight:400;margin:0}
+.detail a{display:inline-block;color:#fffaf0;text-decoration:none;border:1px solid #d9c7a7;border-radius:30px;padding:10px 22px;margin-top:6px;transition:background .2s}
+.detail a:hover,.detail a:focus-visible{background:#ffffff24}
+footer{margin-top:43px;padding-top:18px;border-top:1px solid #ded8cf;color:#6f675f;font-size:.9rem;text-align:center}
+@media(max-width:650px){.wrap{padding:28px 15px 45px}.journey{padding:30px 16px}.path{gap:2px;margin:38px 0 30px}.path:before{top:23px}.stop-number{width:46px;height:46px;font-size:1rem}.stop-label{font-size:.64rem}.detail{min-height:190px}}
 </style>
 </head>
 <body>
 <main class="wrap">
 <a class="back" href="./">← Programa catehetică 2027</a>
-<p class="eyebrow">Programul catehetic anual</p>
+<div class="intro"><p class="eyebrow">Programul catehetic anual</p>
 <h1>Postul Mare – Răstignirea duhovnicească</h1>
-<p class="subtitle">Parcurs catehetic pentru perioada Postului Mare, cu resurse digitale de aprofundare pentru fiecare temă.</p>
-<div class="grid">
-<a class="card" href="./postul-mare-1.html"><span>Cateheza 1</span>Crucea – izvorul Tainelor</a>
-<a class="card" href="./postul-mare-2.html"><span>Cateheza 2</span>Aducerea aminte de moarte</a>
-<a class="card" href="./postul-mare-3.html"><span>Cateheza 3</span>Aducerea aminte de judecată</a>
-<a class="card" href="./postul-mare-4.html"><span>Cateheza 4</span>Aducerea aminte de rai</a>
-<a class="card" href="./postul-mare-5.html"><span>Cateheza 5</span>Aducerea aminte de iad</a>
-</div>
+<p class="subtitle">Parcurs catehetic pentru perioada Postului Mare, cu resurse digitale de aprofundare pentru fiecare temă.</p></div>
+<section class="journey" aria-label="Parcursul celor cinci cateheze"><div class="journey-top"><p>Cinci repere ale răstignirii duhovnicești</p><h2>Drumul Postului Mare</h2><p class="journey-hint">Alege un reper pentru a descoperi cateheza.</p></div><div class="path" role="group" aria-label="Alege cateheza"><button class="stop" type="button" data-i="0" aria-pressed="true"><span class="stop-number">I</span><span class="stop-label">Crucea</span></button><button class="stop" type="button" data-i="1" aria-pressed="false"><span class="stop-number">II</span><span class="stop-label">Moartea</span></button><button class="stop" type="button" data-i="2" aria-pressed="false"><span class="stop-number">III</span><span class="stop-label">Judecata</span></button><button class="stop" type="button" data-i="3" aria-pressed="false"><span class="stop-number">IV</span><span class="stop-label">Raiul</span></button><button class="stop" type="button" data-i="4" aria-pressed="false"><span class="stop-number">V</span><span class="stop-label">Iadul</span></button></div><div class="detail" aria-live="polite"><p class="detail-kicker" id="selected-number">CATEHEZA 1</p><h3 id="selected-title">Crucea – izvorul Tainelor</h3><a id="selected-link" href="./postul-mare-1.html">Deschide cateheza ↗</a></div></section>
 
 <footer>Programa catehetică 2027 · Programul catehetic anual · Postul Mare – Răstignirea duhovnicească</footer>
 </main>
-</body>
+<script>(function(){const items=[["Crucea – izvorul Tainelor","./postul-mare-1.html"],["Aducerea aminte de moarte","./postul-mare-2.html"],["Aducerea aminte de judecată","./postul-mare-3.html"],["Aducerea aminte de rai","./postul-mare-4.html"],["Aducerea aminte de iad","./postul-mare-5.html"]];const buttons=document.querySelectorAll('.stop');const title=document.getElementById('selected-title'),number=document.getElementById('selected-number'),link=document.getElementById('selected-link');buttons.forEach((b,i)=>b.addEventListener('click',()=>{title.textContent=items[i][0];number.textContent='CATEHEZA '+(i+1);link.href=items[i][1];buttons.forEach((v,j)=>v.setAttribute('aria-pressed',String(i===j)))}))})();</script></body>
 </html>
